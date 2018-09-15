@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="email_input_height">150dp</dimen>
+    <dimen name="preview_button_weight">1</dimen>
+    <dimen name="email_input_weight">2</dimen>
+</resources>
