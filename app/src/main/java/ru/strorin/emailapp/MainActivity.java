@@ -19,14 +19,14 @@ public class MainActivity extends AppCompatActivity {
         previewBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditText emailText = findViewById(R.id.email_text_input);
-                String email = emailText.getText().toString();
-                openPreviewActivity(email);
+                openPreviewActivity();
             }
         });
     }
 
-    private void openPreviewActivity(String message){
-        PreviewActivity.start(this, message);
+    private void openPreviewActivity(){
+        EditText emailText = findViewById(R.id.email_text_input);
+        String email = emailText.getText().toString();
+        PreviewActivity.start(this, email);
     }
 }

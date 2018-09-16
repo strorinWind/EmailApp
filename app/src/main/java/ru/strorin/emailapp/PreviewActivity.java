@@ -11,7 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class PreviewActivity extends AppCompatActivity {
-    public static final String EMAIL_TEXT = "EMAIL_TEXT";
+    private static final String EMAIL_TEXT = "EMAIL_TEXT";
 
     private static final String[] EMAIL_ADDRESSES = {"strorinw@gmail.com"};
     private static final String EMAIL_SUBJECT = "Hello, Android Academy, MSK!";
