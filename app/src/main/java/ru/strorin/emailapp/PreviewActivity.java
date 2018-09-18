@@ -11,11 +11,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class PreviewActivity extends AppCompatActivity {
-    private static final String EMAIL_TEXT = "EMAIL_TEXT";
+    private static final String EXTRA_EMAIL_TEXT = "EMAIL_TEXT";
 
-    private static final String[] EMAIL_ADDRESSES = {"strorinw@gmail.com"};
-    private static final String EMAIL_SUBJECT = "Hello, Android Academy, MSK!";
+    private static final String[] EXTRA_EMAIL_ADDRESSES = {"strorinw@gmail.com"};
+    private static final String EXTRA_EMAIL_SUBJECT = "Hello, Android Academy, MSK!";
     private String emailText;
+
+    public static void start(Activity activity, String emailText){
+        Intent previewActivityIntent = new Intent(activity, PreviewActivity.class);
+        previewActivityIntent.putExtra(EXTRA_EMAIL_TEXT, emailText);
+        activity.startActivity(previewActivityIntent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,22 +29,16 @@ public class PreviewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_preview);
 
         TextView previewText = findViewById(R.id.preview_text);
-        emailText = getIntent().getStringExtra(EMAIL_TEXT);
+        emailText = getIntent().getStringExtra(EXTRA_EMAIL_TEXT);
         previewText.setText(emailText);
 
         Button emailBtn = findViewById(R.id.email_button);
         emailBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                composeEmail(EMAIL_ADDRESSES, EMAIL_SUBJECT, emailText);
+                composeEmail(EXTRA_EMAIL_ADDRESSES, EXTRA_EMAIL_SUBJECT, emailText);
             }
         });
-    }
-
-    public static void start(Activity activity, String emailText){
-        Intent previewActivityIntent = new Intent(activity, PreviewActivity.class);
-        previewActivityIntent.putExtra(EMAIL_TEXT, emailText);
-        activity.startActivity(previewActivityIntent);
     }
 
     private void composeEmail(String[] addresses, String subject, String text) {
@@ -51,7 +51,7 @@ public class PreviewActivity extends AppCompatActivity {
             startActivity(intent);
         }
         else {
-            Toast.makeText(this, "No Email app found", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, R.string.no_email_app_error, Toast.LENGTH_LONG).show();
         }
     }
 }

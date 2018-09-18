@@ -3,4 +3,5 @@
     <string name="text_input_hint">Type your text here...</string>
     <string name="preview_button_text">Preview</string>
     <string name="email_button_text">Email</string>
+    <string name="no_email_app_error">No Email app found</string>
 </resources>
