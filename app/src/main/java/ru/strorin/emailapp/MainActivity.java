@@ -25,8 +25,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void openPreviewActivity(){
-        EditText emailText = findViewById(R.id.email_text_input);
-        String email = emailText.getText().toString();
-        PreviewActivity.start(this, email);
+        EditText emailField = findViewById(R.id.email_text_input);
+        String emailText = emailField.getText().toString();
+        PreviewActivity.start(this, emailText);
     }
 }
